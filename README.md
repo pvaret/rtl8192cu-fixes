@@ -21,6 +21,10 @@ Build and install it:
 
     sudo dkms install 8192cu/1.7
 
+Refresh the module list:
+
+    depmod -a
+
 Ensure the native (and broken) kernel driver is blacklisted:
 
     sudo cp ./rtl8192cu-fixes/blacklist-native-rtl8192.conf /etc/modprobe.d/
