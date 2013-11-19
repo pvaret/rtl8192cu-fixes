@@ -1,6 +1,6 @@
 This is a port of Realtek's own 8192cu driver for USB Wifi chipsets, ported to kernel 3.11 as ships with Ubuntu 13.10.
 
-It is LARGELY based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/
+It was initially based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/, though no longer.
 
 Installation
 ============
@@ -19,11 +19,11 @@ Set it up as a DKMS module:
 
 Build and install it:
 
-    sudo dkms install 8192cu/1.7
+    sudo dkms install 8192cu/1.8
 
 Refresh the module list:
 
-    depmod -a
+    sudo depmod -a
 
 Ensure the native (and broken) kernel driver is blacklisted:
 
