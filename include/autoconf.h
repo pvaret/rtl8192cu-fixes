@@ -296,9 +296,9 @@
 //#define CONFIG_DEBUG_RTL871X
 
 #define DBG	0
-#define CONFIG_DEBUG_RTL819X
+//#define CONFIG_DEBUG_RTL819X
 
-#define CONFIG_PROC_DEBUG	1
+//#define CONFIG_PROC_DEBUG	1
 
 //#define DBG_IO
 //#define DBG_DELAY_OS
