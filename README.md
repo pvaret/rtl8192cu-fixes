@@ -31,6 +31,15 @@ Ensure the native (and broken) kernel driver is blacklisted:
 
 And reboot. You're done.
 
+Troubleshooting
+===============
+
+There is a known issue with power management on some hardware. If your WiFi connection drops after a few minutes, install the following module setting file to disable power management in your WiFi interface:
+
+    sudo cp ./rtl8192cu-fixes/8192cu-disable-power-management.conf /etc/modprobe.d/
+
+And then reboot. (Credit goes to Saqib Razaq for the fix.)
+
 Current status
 ==============
 
