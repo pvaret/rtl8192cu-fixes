@@ -1,4 +1,4 @@
-This is a port of Realtek's own 8192cu driver for USB Wifi chipsets, ported to kernel 3.11 as ships with Ubuntu 13.10.
+This is a port of Realtek's own 8192cu driver for USB Wifi chipsets, ported to kernel 3.11+ as ships with Ubuntu 13.10 and later.
 
 It was initially based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/, though no longer.
 
@@ -19,7 +19,7 @@ Set it up as a DKMS module:
 
 Build and install it:
 
-    sudo dkms install 8192cu/1.8
+    sudo dkms install 8192cu/1.9
 
 Refresh the module list:
 
@@ -35,3 +35,5 @@ Current status
 ==============
 
 As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed, and the driver hasn't yet been ported to the new API.
+
+This driver is known to work with RTL8192cu devices like the Belkin N150, but may not work with hardware based on other chipsets like the 8188cus, nor with devices using a 2x2 setup like the TP-Link WN8200ND.
