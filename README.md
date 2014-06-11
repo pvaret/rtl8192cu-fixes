@@ -1,11 +1,9 @@
-This is a port of Realtek's own 8192cu driver for USB Wifi chipsets, ported to kernel 3.11+ as ships with Ubuntu 13.10 and later.
-
-It was initially based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/, though no longer.
+This is a port of Realtek's own 8192CU driver for USB WiFi devices on Ubuntu 13.10 and later.
 
 Installation
 ============
 
-Ensure you have the necessary prerequisites:
+Ensure you have the necessary prerequisites installed:
 
     sudo apt-get install linux-headers-generic build-essential dkms
 
@@ -38,11 +36,18 @@ There is a known issue with power management on some hardware. If your WiFi conn
 
     sudo cp ./rtl8192cu-fixes/8192cu-disable-power-management.conf /etc/modprobe.d/
 
-And then reboot. (Credit goes to Saqib Razaq for the fix.)
+And then reboot.
 
 Current status
 ==============
 
-As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed, and the driver hasn't yet been ported to the new API.
+As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed in recent kernels, and the driver hasn't yet been ported to the new API.
 
-This driver is known to work with RTL8192cu devices like the Belkin N150, but may not work with hardware based on other chipsets like the 8188cus, nor with devices using a 2x2 setup like the TP-Link WN8200ND.
+This driver is known to work with some RTL8192CU devices like the Belkin N300, and should work with some 8188CUS, RTL8188CE-VAU and RTL8188RU devices as well. However, it is known not to work well with devices using dual antennas, such as the TP-Link WN8200ND, due to an incomplete MIMO implementation in the upstream driver.
+
+Credits
+=======
+
+This repository was initially based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/, though no longer.
+
+Thanks go to Saqib Razaq (@s-razaq) for the power management workaround.
