@@ -17,7 +17,7 @@ Set it up as a DKMS module:
 
 Build and install it:
 
-    sudo dkms install 8192cu/1.9
+    sudo dkms install 8192cu/1.10
 
 Refresh the module list:
 
