@@ -5,7 +5,7 @@ Installation
 
 Ensure you have the necessary prerequisites installed:
 
-    sudo apt-get install linux-headers-generic build-essential dkms
+    sudo apt-get install git linux-headers-generic build-essential dkms
 
 Clone this repository:
 
@@ -29,6 +29,13 @@ Ensure the native (and broken) kernel driver is blacklisted:
 
 And reboot. You're done.
 
+Other distributions
+===================
+
+The instructions above should work in every Debian-based distribution. So long as you can install the prerequisites on your own, everything after the line that contains `apt-get` should work in other distributions as well.
+
+On Gentoo, you can disregard the instructions above and just install the following ebuild: https://gitweb.gentoo.org/dev/maksbotan.git/tree/sys-kernel/rtl8192cu-fixes/rtl8192cu-fixes-9999.ebuild
+
 Troubleshooting
 ===============
 
@@ -43,7 +50,7 @@ Current status
 
 As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed in recent kernels, and the driver hasn't yet been ported to the new API.
 
-This driver is known to work with some RTL8192CU devices like the Belkin N300, and should work with some 8188CUS, RTL8188CE-VAU and RTL8188RU devices as well. However, it is known not to work well with devices using dual antennas, such as the TP-Link WN8200ND, due to an incomplete MIMO implementation in the upstream driver.
+This driver is known to work with some RTL8192CU devices like the Belkin N300 and TP-Link TL-WN823N, and should work with some 8188CUS, RTL8188CE-VAU and RTL8188RU devices as well. However, it is known not to work well with devices using dual antennas, such as the TP-Link WN8200ND, apparently due to an incomplete MIMO implementation in the upstream driver.
 
 Credits
 =======
