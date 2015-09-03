@@ -5,6 +5,7 @@ Installation
 
 Ensure you have the necessary prerequisites installed:
 
+    sudo apt-get update
     sudo apt-get install git linux-headers-generic build-essential dkms
 
 Clone this repository:
