@@ -1,4 +1,20 @@
-This is a port of Realtek's own 8192CU driver for USB WiFi devices on Ubuntu 13.10 and later.
+This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
+
+Compatibility
+=============
+
+These devices are known to work with this driver:
+- Belkin N300
+- TP-Link TL-WN823N
+- TRENDnet TEW-648UBM N150
+
+These devices are known not to be supported:
+- Alfa AWUS036NHR
+- TP-Link WN8200ND
+
+As a rule of thumb, this driver generally works with devices that use the RTL8192CU chipset, and some devices that use the RTL8188CUS, RTL8188CE-VAU and RTL8188RU chipsets too, though it's more hit and miss.
+
+Devices that use dual antennas are known not to work well. This appears to be an issue in the upstream Realtek driver.
 
 Installation
 ============
@@ -49,9 +65,7 @@ And then reboot.
 Current status
 ==============
 
-As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed in recent kernels, and the driver hasn't yet been ported to the new API.
-
-This driver is known to work with some RTL8192CU devices like the Belkin N300 and TP-Link TL-WN823N, and should work with some 8188CUS, RTL8188CE-VAU and RTL8188RU devices as well. However, it is known not to work well with devices using dual antennas, such as the TP-Link WN8200ND, apparently due to an incomplete MIMO implementation in the upstream driver.
+As it currently stands, the driver doesn't populate /proc with informational data from the driver. The API for /proc has changed in recent kernels, and the driver has not been ported to the new API.
 
 Credits
 =======
