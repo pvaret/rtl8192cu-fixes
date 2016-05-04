@@ -5,7 +5,7 @@ Compatibility
 
 These devices are known to work with this driver:
 - Belkin N300
-- TP-Link TL-WN822N
+- TP-Link TL-WN822N (0bda:8178)
 - TP-Link TL-WN823N
 - TRENDnet TEW-648UBM N150
 
