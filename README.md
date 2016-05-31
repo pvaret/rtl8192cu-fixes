@@ -4,6 +4,7 @@ Compatibility
 =============
 
 These devices are known to work with this driver:
+- ASUSTek USB-N13 **rev. B1** (0b05:17ab)
 - Belkin N300
 - TP-Link TL-WN822N (0bda:8178)
 - TP-Link TL-WN823N
