@@ -68,6 +68,7 @@ static int rtw_drv_init(struct usb_interface *pusb_intf,const struct usb_device_
 static void rtw_dev_remove(struct usb_interface *pusb_intf);
 
 #define USB_VENDER_ID_REALTEK		0x0BDA
+#define USB_VENDER_ID_BELKIN		0x050D
 
 /* DID_USB_v915_20121224 */
 #define RTL8192C_USB_IDS \
@@ -101,8 +102,8 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x06F8, 0xE033)},/* Hercules - Edimax */ \
 	{USB_DEVICE(0x103C, 0x1629)},/* HP - Lite-On ,8188CUS Slim Combo */ \
 	{USB_DEVICE(0x2001, 0x3308)},/* D-Link - Alpha */ \
-	{USB_DEVICE(0x050D, 0x1102)},/* Belkin - Edimax */ \
-	{USB_DEVICE(0x050D, 0x11F2)},/* ISY - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x1102)},/* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x11F2)},/* ISY - Edimax */ \
 	{USB_DEVICE(0x2019, 0xAB2A)},/* Planex - Abocom */ \
 	{USB_DEVICE(0x20F4, 0x648B)},/* TRENDnet - Cameo */ \
 	{USB_DEVICE(0x4855, 0x0090)},/*  - Feixun */ \
@@ -149,8 +150,9 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x07B8, 0x8178)},/* Abocom - Abocom */ \
 	{USB_DEVICE(0x07AA, 0x0056)},/* ATKK - Gemtek */ \
 	{USB_DEVICE(0x4855, 0x0091)},/*  - Feixun */ \
-	{USB_DEVICE(0x050D, 0x2102)},/* Belkin - Sercomm */ \
-	{USB_DEVICE(0x050D, 0x2103)},/* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x2102)},/* Belkin - Sercomm */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x2103)},/* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x1102)},/* Belkin - Surf N150 */ \
 	{USB_DEVICE(0x20F4, 0x624D)},/* TRENDnet */ \
 	{USB_DEVICE(0x0DF6, 0x0061)},/* Sitecom - Edimax */ \
 	{USB_DEVICE(0x0B05, 0x17AB)},/* ASUS - Edimax */ \
@@ -158,7 +160,7 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x0846, 0xF001)}, /* Netgear - Sercomm */ \
 	{USB_DEVICE(0x0E66, 0x0019)},/* Hawking,Edimax */ \
 	{USB_DEVICE(0x0E66, 0x0020)}, /* Hawking  - Edimax */ \
-	{USB_DEVICE(0x050D, 0x1004)}, /* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x1004)}, /* Belkin - Edimax */ \
 	{USB_DEVICE(0x0BDA, 0x2E2E)}, /* Intel - - */ \
 	{USB_DEVICE(0x2357, 0x0100)}, /* TP-Link - TP-Link */ \
 	{USB_DEVICE(0x06F8, 0xE035)}, /* Hercules - Edimax */ \
@@ -186,9 +188,9 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x20F4, 0x664B)}, /* TRENDnet - Cameo */ \
 	{USB_DEVICE(0x04DD, 0x954F)},  /* Sharp */ \
 	{USB_DEVICE(0x04DD, 0x96A6)},  /* Sharp */ \
-	{USB_DEVICE(0x050D, 0x110A)}, /* Belkin - Edimax */ \
-	{USB_DEVICE(0x050D, 0x1105)}, /* Belkin - Edimax */ \
-	{USB_DEVICE(0x050D, 0x120A)}, /* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x110A)}, /* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x1105)}, /* Belkin - Edimax */ \
+	{USB_DEVICE(USB_VENDER_ID_BELKIN, 0x120A)}, /* Belkin - Edimax */ \
 	{USB_DEVICE(0x1668, 0x8102)}, /*  -  */ \
 	{USB_DEVICE(0x0BDA, 0xE194)}, /*  - Edimax */ \
 	/****** 8192DU-WiFi Display Dongle ********/ \
