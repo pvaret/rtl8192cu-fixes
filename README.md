@@ -8,6 +8,7 @@ These devices are known to work with this driver:
 - Belkin N300
 - Edimax EW-7811Un (7392:7811)
 - Kootek KT-RPWF (0bda:8176)
+- TP-LINK TL-WN821N (Tested on TL-WN821Nv4) 
 - TP-Link TL-WN822N (0bda:8178)
 - TP-Link TL-WN823N
 - TRENDnet TEW-648UBM N150
