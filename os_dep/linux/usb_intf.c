@@ -96,6 +96,7 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x2019, 0xED17)},/* PCI - Edimax */ \
 	{USB_DEVICE(0x0DF6, 0x0052)},/* Sitecom - Edimax */ \
 	{USB_DEVICE(0x7392, 0x7811)},/* Edimax - Edimax */ \
+	{USB_DEVICE(0x07B8, 0x8188)},/* Abocom - Abocom */ \
 	{USB_DEVICE(0x07B8, 0x8189)},/* Abocom - Abocom */ \
 	{USB_DEVICE(0x0EB0, 0x9071)},/* NO Brand - Etop */ \
 	{USB_DEVICE(0x06F8, 0xE033)},/* Hercules - Edimax */ \
@@ -120,7 +121,6 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x0B05, 0x17BA)}, /* ASUS - Edimax */ \
 	{USB_DEVICE(0x0BDA, 0x1E1E)}, /* Intel - - */ \
 	{USB_DEVICE(0x04BB, 0x094c)}, /* I-O DATA - Edimax */ \
-	{USB_DEVICE(0X0BDA, 0x8176)}, /* TP-Link - TL-WN723N */ \
 	/****** 8188CTV ********/ \
 	{USB_DEVICE(0xCDAB, 0x8011)}, /* - - compare */ \
 	{USB_DEVICE(0x0BDA, 0x0A8A)}, /* Sony - Foxconn */ \
@@ -151,6 +151,7 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x4855, 0x0091)},/*  - Feixun */ \
 	{USB_DEVICE(0x050D, 0x2102)},/* Belkin - Sercomm */ \
 	{USB_DEVICE(0x050D, 0x2103)},/* Belkin - Edimax */ \
+	{USB_DEVICE(0x050D, 0x21F2)},/* Belkin - Edimax */ \
 	{USB_DEVICE(0x20F4, 0x624D)},/* TRENDnet */ \
 	{USB_DEVICE(0x0DF6, 0x0061)},/* Sitecom - Edimax */ \
 	{USB_DEVICE(0x0B05, 0x17AB)},/* ASUS - Edimax */ \
