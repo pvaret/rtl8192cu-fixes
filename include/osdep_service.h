@@ -20,6 +20,10 @@
 #ifndef __OSDEP_SERVICE_H_
 #define __OSDEP_SERVICE_H_
 
+#include <linux/version.h>
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0)
+#include <linux/sched/signal.h>
+#endif
 #include <drv_conf.h>
 #include <basic_types.h>
 //#include <rtl871x_byteorder.h>
