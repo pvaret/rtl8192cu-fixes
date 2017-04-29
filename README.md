@@ -6,6 +6,7 @@ Compatibility
 These devices are known to work with this driver:
 - ASUSTek USB-N13 **rev. B1** (0b05:17ab)
 - Belkin N300
+- D-Link DWA-121 802.11n Wireless N 150 Pico Adapter [RTL8188CUS]
 - Edimax EW-7811Un (7392:7811)
 - Kootek KT-RPWF (0bda:8176)
 - TP-Link TL-WN822N (0bda:8178)
