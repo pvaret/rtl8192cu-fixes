@@ -1,12 +1,60 @@
 language: c
-
-os: linux
-
+compiler: gcc
 sudo: required
 
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install build-essential linux-headers-`uname -r`
+  - export ALL_DEB=$(wget --quiet -O - ${KERNEL_URL}v${KVER}/ | grep -o 'href=".*"' | grep -m1 all | cut -d '"' -f 2)
+  - export KVER_BUILD=$(echo $ALL_DEB | cut -d '_' -f 1 | cut -c15-)
+  - wget ${KERNEL_URL}v${KVER}/$(wget --quiet -O - ${KERNEL_URL}v${KVER}/ | grep -o 'href=".*"' | grep headers | grep generic | grep -m1 amd64 | cut -d '"' -f 2)
+  - wget ${KERNEL_URL}v${KVER}/$ALL_DEB
+  - sudo dpkg -i *.deb
 
 script:
-  - make
+  - make CC=$COMPILER KVER=$KVER_BUILD-generic
+
+env:
+  global:
+    - KERNEL_URL=http://kernel.ubuntu.com/~kernel-ppa/mainline/
+
+matrix:
+  include:
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-5
+      env: COMPILER=gcc-5 KVER=4.14-rc1
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-6
+      env: COMPILER=gcc-6 KVER=4.14-rc1
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-7
+      env: COMPILER=gcc-7 KVER=4.14-rc1
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-6
+      env: COMPILER=gcc-6 KVER=4.9.51
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-4.9
+      env: COMPILER=gcc-4.9 KVER=3.16.48
