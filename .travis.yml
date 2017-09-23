@@ -2,11 +2,11 @@ language: c
 
 os: linux
 
-addons:
-  apt:
-    packages:
-    - linux-headers-generic
-    - build-essential
+sudo: required
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install build-essential linux-headers-`uname -r`
 
 script:
   - make
