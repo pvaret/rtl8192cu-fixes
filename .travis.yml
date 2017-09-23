@@ -1,0 +1,12 @@
+language: c
+
+os: linux
+
+sudo: required
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install build-essential linux-headers-`uname -r`
+
+script:
+  - make
