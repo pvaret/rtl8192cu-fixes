@@ -6,7 +6,7 @@ addons:
   apt:
     packages:
     - linux-headers-generic
-    - build-essentials
+    - build-essential
 
 script:
   - make
