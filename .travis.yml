@@ -1,0 +1,12 @@
+language: c
+
+os: linux
+
+addons:
+  apt:
+    packages:
+    - linux-headers-generic
+    - build-essentials
+
+script:
+  - make
