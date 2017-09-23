@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pvaret/rtl8192cu-fixes.svg?branch=master)](https://travis-ci.org/pvaret/rtl8192cu-fixes)
+
 This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
 
 Compatibility
