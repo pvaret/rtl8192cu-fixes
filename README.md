@@ -70,6 +70,8 @@ There is a known issue with power management on some hardware. If your WiFi conn
 
 And then reboot.
 
+Sometimes Network Manager also sets a device in a power-saving mode where it doesn't use enough power to connect. You can fix it by editing `/etc/NetworkManager/conf.d/default-wifi-powersave-on.conf` and setting `wifi.powersave` to 2. And then reboot.
+
 Current status
 ==============
 
