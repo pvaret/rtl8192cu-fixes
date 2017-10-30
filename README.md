@@ -11,6 +11,7 @@ These devices are known to work with this driver:
 - D-Link DWA-121 802.11n Wireless N 150 Pico Adapter [RTL8188CUS]
 - Edimax EW-7811Un (7392:7811)
 - Kootek KT-RPWF (0bda:8176)
+- OurLink 150M 802.11n (0bda:8176)
 - TP-Link TL-WN821N**v4** (0bda:8178)
 - TP-Link TL-WN822N (0bda:8178)
 - TP-Link TL-WN823N (only models that use the rtl8192cu chip)
