@@ -504,7 +504,7 @@ endif
 ifeq ($(CONFIG_PLATFORM_ARM_SUNxI), y)
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -DCONFIG_PLATFORM_ARM_SUNxI
 SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
-ARCH ?= $(SUBARCH)
+ARCH ?= arm
 CROSS_COMPILE ?=
 KVER  := $(shell uname -r)
 KSRC := /lib/modules/$(KVER)/build
