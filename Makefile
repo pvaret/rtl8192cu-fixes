@@ -16,6 +16,8 @@ EXTRA_CFLAGS += -Wno-unused
 
 EXTRA_CFLAGS += -Wno-uninitialized
 
+#EXTRA_CFLAGS += -Wno-implicit-function-declaration
+
 EXTRA_CFLAGS += -I$(src)/include
 
 CONFIG_AUTOCFG_CP = n
@@ -29,7 +31,7 @@ CONFIG_PCI_HCI = n
 CONFIG_SDIO_HCI = n
 
 CONFIG_MP_INCLUDED = n
-CONFIG_POWER_SAVING = y
+CONFIG_POWER_SAVING = n
 CONFIG_USB_AUTOSUSPEND = n
 CONFIG_HW_PWRP_DETECTION = n
 CONFIG_WIFI_TEST = n
@@ -503,10 +505,13 @@ endif
 
 ifeq ($(CONFIG_PLATFORM_ARM_SUNxI), y)
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -DCONFIG_PLATFORM_ARM_SUNxI
-ARCH := arm
-CROSS_COMPILE := arm-none-linux-gnueabi-
-KVER  := 3.0.8
-#KSRC:= ../lichee/linux-3.0/
+SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
+ARCH ?= arm
+CROSS_COMPILE ?=
+KVER  := $(shell uname -r)
+KSRC := /lib/modules/$(KVER)/build
+MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
+INSTALL_PREFIX :=
 endif
 
 ifeq ($(CONFIG_PLATFORM_ARM_SUN6I), y)
