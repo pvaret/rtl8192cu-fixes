@@ -1,9 +1,9 @@
-This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
+This is a repackaging of Realtek's own 8192CU USB WiFi driver for kernel 4.15.0.
 
 !! This driver is DEPRECATED !!
 ===============================
 
-The new `rtl8xxxu` driver initially introduced in kernel 4.4 works pretty well these days, and you almost certainly should prefer it to this repository.
+The new `rtl8xxxu` driver initially introduced in kernel 4.4 works pretty well these days, with some exceptions, but you should try it before trying this repository.
 
 If `rtl8xxxu` gives you problems, try troubleshooting it before installing this driver. Known things to look for are:
   - Some devices require that power management be disabled in NetworkManager. Follow the instructions further down to disable power management in NetworkManager.
