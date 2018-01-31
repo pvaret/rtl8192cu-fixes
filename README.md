@@ -1,4 +1,4 @@
-This is a repackaging of Realtek's own 8192CU USB WiFi driver for kernel 4.15.0.
+This is a repackaging of Realtek's own 8192CU USB WiFi driver for **kernel 4.15.0.**
 
 !! This driver is DEPRECATED !!
 ===============================
@@ -9,11 +9,11 @@ If `rtl8xxxu` gives you problems, try troubleshooting it before installing this 
   - Some devices require that power management be disabled in NetworkManager. Follow the instructions further down to disable power management in NetworkManager.
   - Make sure to blacklist the older `rtl8192cu` driver, which tends to be loaded by default otherwise.
 
-That said, I still believe this driver to be the best performing option for many devices, including and especially many 8192cu usb dongles.  So I have forked pvaret's 8192cu driver found here:
+**That said, I still believe this driver to be the best performing option for many devices, including and especially many 8192cu usb dongles.  So I have forked pvaret's 8192cu driver found here:**
 
 https://github.com/pvaret/rtl8192cu-fixes
 
-and patched for kernel 4.15.0.  So far performance equals that of pre 4.15.0 kernels with no drops or disconnects as can frequently be experienced with the in-kernel rtl8192cu and rtl8xxxu drivers.
+**and patched for kernel 4.15.0.  So far performance equals that of pre 4.15.0 kernels with no drops or disconnects as can frequently be experienced with the in-kernel rtl8192cu and rtl8xxxu drivers.**
 
 
 Compatibility
