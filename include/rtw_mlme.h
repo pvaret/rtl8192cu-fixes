@@ -639,8 +639,14 @@ extern void _rtw_scan_timeout_handler (
 
 #if defined (PLATFORM_LINUX)|| defined (PLATFORM_FREEBSD)
 extern int event_thread(void *context);
-extern void rtw_join_timeout_handler(void* FunctionContext);
+
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+extern void rtw_join_timeout_handler(void *FunctionContext);
 extern void _rtw_scan_timeout_handler(void* FunctionContext);
+#else
+extern void rtw_join_timeout_handler(struct timer_list *t);
+extern void _rtw_scan_timeout_handler(struct timer_list *t);
+#endif
 #endif
 
 extern void rtw_free_network_queue(_adapter *adapter,u8 isfreeall);
