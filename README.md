@@ -1,20 +1,18 @@
-This is a repackaging of Realtek's own 8192CU USB WiFi driver for **kernel 4.15.0.**
+This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
 
 !! This driver is DEPRECATED !!
 ===============================
 
+This driver is not explicitly maintained.
+
 The new `rtl8xxxu` driver initially introduced in kernel 4.4 works pretty well these days, with some exceptions, but you should try it before trying this repository.
+The new `rtl8xxxu` driver initially introduced in kernel 4.4 works mostly well these days, and you should give it a try before trying this repository.
 
-If `rtl8xxxu` gives you problems, try troubleshooting it before installing this driver. Known things to look for are:
-  - Some devices require that power management be disabled in NetworkManager. Follow the instructions further down to disable power management in NetworkManager.
-  - Make sure to blacklist the older `rtl8192cu` driver, which tends to be loaded by default otherwise.
+If `rtl8xxxu` gives you problems, try troubleshooting it first. Known things to look for are:
+  - Make sure to blacklist the older `rtl8192cu` driver, which some distros seem to load by default otherwise.
+  - Some devices require that power management be disabled in NetworkManager. Follow the instructions further down to disable power management in NetworkManager. Typical symptoms would be that the device works fine for a moment, and then becomes very slow or outright drops the connection.
 
-**That said, I still believe this driver to be the best performing option for many devices, including and especially many 8192cu usb dongles.  So I have forked pvaret's 8192cu driver found here:**
-
-https://github.com/pvaret/rtl8192cu-fixes
-
-**and patched for kernel 4.15.0.  So far performance equals that of pre 4.15.0 kernels with no drops or disconnects as can frequently be experienced with the in-kernel rtl8192cu and rtl8xxxu drivers.**
-
+In some cases, though, this driver has been known to work fine where `rtl8xxxu` doesn't. If `rtl8xxxu` doesn't work for you even after the troubleshooting steps listed above, follow the instructions below to install this one instead.
 
 Compatibility
 =============
@@ -98,3 +96,7 @@ Credits
 This repository was initially based on Timothy Phillips's work as published here: https://code.google.com/p/realtek-8188cus-wireless-drivers-3444749-ubuntu-1304/, though no longer.
 
 Thanks go to Saqib Razaq (@s-razaq) for the power management workaround.
+
+Thanks to @CGarces for the Travis configuration.
+
+Thanks to @rburcham for the kernel 4.15 fixes.
