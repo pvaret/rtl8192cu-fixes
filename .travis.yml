@@ -24,15 +24,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - gcc-5
-      env: COMPILER=gcc-5 KVER=4.15
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
             - gcc-6
+            - libelf-dev
       env: COMPILER=gcc-6 KVER=4.15
     - compiler: gcc
       addons:
@@ -41,6 +34,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - gcc-7
+            - libelf-dev
       env: COMPILER=gcc-7 KVER=4.15
     - compiler: gcc
       addons:
@@ -49,6 +43,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - gcc-5
+            - libelf-dev
       env: COMPILER=gcc-5 KVER=4.14.16
     - compiler: gcc
       addons:
@@ -57,6 +52,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - gcc-6
+            - libelf-dev
       env: COMPILER=gcc-6 KVER=4.14.16
     - compiler: gcc
       addons:
@@ -65,6 +61,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - gcc-7
+            - libelf-dev
       env: COMPILER=gcc-7 KVER=4.14.16
     - compiler: gcc
       addons:
