@@ -49,10 +49,8 @@
 
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
-//static void BlinkTimerCallback(unsigned long data);
-void BlinkTimerCallback(unsigned long data);
+void BlinkTimerCallback(void *data);
 #else
-// static void BlinkTimerCallback(struct timer_list *t);
 void BlinkTimerCallback(struct timer_list *t);
 #endif
 
@@ -1287,16 +1285,12 @@ SwLedBlink6(
 //		it just schedules to corresponding BlinkWorkItem.
 //
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
-// static void BlinkTimerCallback(void *data)
-void BlinkTimerCallback(void *data)
-#else
-// static void BlinkTimerCallback(struct timer_list *t)
-void BlinkTimerCallback(struct timer_list *t)
-#endif
+void BlinkTimerCallback(void * data)
 {
-#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
         PLED_871x         pLed = (PLED_871x)data;
 #else
+void BlinkTimerCallback(struct timer_list *t)
+{
         PLED_871x         pLed = from_timer(pLed, t, BlinkTimer);
 #endif
 	_adapter		*padapter = pLed->padapter;
