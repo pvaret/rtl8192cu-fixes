@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/pvaret/rtl8192cu-fixes.svg?branch=master)](https://travis-ci.org/pvaret/rtl8192cu-fixes)
-
 This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
 
 !! This driver is DEPRECATED !!
@@ -7,6 +5,7 @@ This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 a
 
 This driver is not explicitly maintained.
 
+The new `rtl8xxxu` driver initially introduced in kernel 4.4 works pretty well these days, with some exceptions, but you should try it before trying this repository.
 The new `rtl8xxxu` driver initially introduced in kernel 4.4 works mostly well these days, and you should give it a try before trying this repository.
 
 If `rtl8xxxu` gives you problems, try troubleshooting it first. Known things to look for are:

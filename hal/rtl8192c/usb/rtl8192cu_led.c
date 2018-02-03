@@ -48,15 +48,13 @@
 //================================================================================
 
 
-static void
-BlinkTimerCallback(
-	unsigned long data
-	);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+void BlinkTimerCallback(void *data);
+#else
+void BlinkTimerCallback(struct timer_list *t);
+#endif
 
-static void
-BlinkWorkItemCallback(
-	struct work_struct *work
-	);
+static void BlinkWorkItemCallback(struct work_struct *work);
 
 //
 //	Description:
@@ -97,7 +95,11 @@ InitLed871x(
 
 	ResetLedStatus(pLed);
 
-	_init_timer(&(pLed->BlinkTimer), padapter->pnetdev, BlinkTimerCallback, pLed);
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+        _init_timer(&(pLed->BlinkTimer), padapter->pnetdev, BlinkTimerCallback, pLed);
+#else
+        timer_setup(&pLed->BlinkTimer, BlinkTimerCallback, 0);
+#endif
 	_init_workitem(&(pLed->BlinkWorkItem), BlinkWorkItemCallback, pLed);
 }
 
@@ -1282,12 +1284,15 @@ SwLedBlink6(
 //		Callback function of LED BlinkTimer, 
 //		it just schedules to corresponding BlinkWorkItem.
 //
-static void
-BlinkTimerCallback(
-	unsigned long data
-	)
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
+void BlinkTimerCallback(void * data)
 {
-	PLED_871x	 pLed = (PLED_871x)data;
+        PLED_871x         pLed = (PLED_871x)data;
+#else
+void BlinkTimerCallback(struct timer_list *t)
+{
+        PLED_871x         pLed = from_timer(pLed, t, BlinkTimer);
+#endif
 	_adapter		*padapter = pLed->padapter;
 
 	//DBG_871X("%s\n", __FUNCTION__);

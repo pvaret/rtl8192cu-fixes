@@ -4606,7 +4606,9 @@ void rtl8192c_init_dm_priv(IN PADAPTER Adapter)
 	//_rtw_memset(pdmpriv, 0, sizeof(struct dm_priv));
 
 #ifdef CONFIG_SW_ANTENNA_DIVERSITY
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
 	_init_timer(&(pdmpriv->SwAntennaSwitchTimer),  Adapter->pnetdev , dm_SW_AntennaSwitchCallback, Adapter);
+#endif
 #endif
 }
 
