@@ -162,6 +162,7 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x050D, 0x1004)}, /* Belkin - Edimax */ \
 	{USB_DEVICE(0x0BDA, 0x2E2E)}, /* Intel - - */ \
 	{USB_DEVICE(0x2357, 0x0100)}, /* TP-Link - TP-Link */ \
+	{USB_DEVICE(0x2357, 0x0107)}, /* TP-Link -  TL-WN821 */ \
 	{USB_DEVICE(0x06F8, 0xE035)}, /* Hercules - Edimax */ \
 	{USB_DEVICE(0x04BB, 0x0950)}, /* IO-DATA - Edimax */ \
 	{USB_DEVICE(0x0DF6, 0x0070)}, /* Sitecom - Edimax */ \
