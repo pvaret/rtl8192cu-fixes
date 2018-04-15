@@ -3607,7 +3607,7 @@ static void ro_ch_timer_process(struct timer_list *t)
 #if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
 	_adapter *adapter = (_adapter *)FunctionContext;
 #else
-	_adapter *adapter = from_timer(adapter, t, wdinfo.remain_on_ch_timer);
+	_adapter *adapter = from_timer(adapter, t, cfg80211_wdinfo.remain_on_ch_timer);
 #endif
 	struct rtw_wdev_priv *pwdev_priv = wdev_to_priv(adapter->rtw_wdev);
 
