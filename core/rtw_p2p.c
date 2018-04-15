@@ -19,6 +19,7 @@
  ******************************************************************************/
 #define _RTW_P2P_C_
 
+#include <osdep_service.h>
 #include <drv_types.h>
 #include <rtw_p2p.h>
 #include <wifi.h>
