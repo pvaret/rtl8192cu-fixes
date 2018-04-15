@@ -19,7 +19,6 @@
  ******************************************************************************/
 #define _RTW_P2P_C_
 
-#include <osdep_service.h>
 #include <drv_types.h>
 #include <rtw_p2p.h>
 #include <wifi.h>
@@ -4373,7 +4372,11 @@ void rtw_init_cfg80211_wifidirect_info( _adapter*	padapter)
 
 	_rtw_memset(pcfg80211_wdinfo, 0x00, sizeof(struct cfg80211_wifidirect_info) );
 	
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4, 15, 0)
 	_init_timer( &pcfg80211_wdinfo->remain_on_ch_timer, padapter->pnetdev, ro_ch_timer_process, padapter );
+#else
+        timer_setup(&pcfg80211_wdinfo->remain_on_ch_timer, ro_ch_timer_process, 0);
+#endif
 }
 #endif //CONFIG_IOCTL_CFG80211	
 
