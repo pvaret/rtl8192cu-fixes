@@ -26,6 +26,7 @@ These devices are known to work with this driver:
 - Kootek KT-RPWF (0bda:8176)
 - OurLink 150M 802.11n (0bda:8176)
 - Plugable USB 2.0 Wireless N 802.11n (0bda:8176)
+- TP-Link TL-WN725N (0bda:8176)
 - TP-Link TL-WN821N**v4** (0bda:8178)
 - TP-Link TL-WN822N (0bda:8178)
 - TP-Link TL-WN823N (only models that use the rtl8192cu chip)
