@@ -48,6 +48,17 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
+          packages:
+            - gcc-7
+            - libelf-dev
+            - libssl1.1
+      env: COMPILER=gcc-7 KVER=5.0
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
           packages:
             - gcc-5
             - libelf-dev
