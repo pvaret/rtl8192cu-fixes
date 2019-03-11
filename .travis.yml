@@ -26,6 +26,7 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-5
             - libelf-dev
@@ -36,6 +37,7 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-6
             - libelf-dev
