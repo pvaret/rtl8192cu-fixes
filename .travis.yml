@@ -1,11 +1,9 @@
 language: c
 compiler: gcc
 sudo: required
+dist: xenial
 
 before_install:
-  - sudo apt-get clean
-  - sudo apt-get update
-  - sudo apt-get install dpkg
   - export ALL_DEB=$(wget --quiet -O - ${KERNEL_URL}v${KVER}/ | grep -o 'href=".*"' | grep -m1 all | cut -d '"' -f 2)
   - export KVER_BUILD=$(echo $ALL_DEB | cut -d '_' -f 1 | cut -c15-)
   - wget ${KERNEL_URL}v${KVER}/$(wget --quiet -O - ${KERNEL_URL}v${KVER}/ | grep -o 'href=".*"' | grep headers | grep generic | grep -m1 amd64 | cut -d '"' -f 2)
@@ -14,7 +12,6 @@ before_install:
 
 script:
   - make CC=$COMPILER KVER=$KVER_BUILD-generic
-
 env:
   global:
     - KERNEL_URL=http://kernel.ubuntu.com/~kernel-ppa/mainline/
@@ -25,13 +22,10 @@ matrix:
       addons:
         apt:
           sources:
-            - ubuntu-toolchain-r-test
             - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
-            - gcc-5
-            - libelf-dev
             - libssl1.1
-      env: COMPILER=gcc-5 KVER=5.0
+      env: COMPILER=gcc-5 KVER=5.2-rc1
     - compiler: gcc
       addons:
         apt:
@@ -40,9 +34,8 @@ matrix:
             - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-6
-            - libelf-dev
             - libssl1.1
-      env: COMPILER=gcc-6 KVER=5.0
+      env: COMPILER=gcc-6 KVER=5.2-rc1
     - compiler: gcc
       addons:
         apt:
@@ -51,76 +44,35 @@ matrix:
             - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-7
-            - libelf-dev
             - libssl1.1
-      env: COMPILER=gcc-7 KVER=5.0
+      env: COMPILER=gcc-7 KVER=5.2-rc1
     - compiler: gcc
       addons:
         apt:
           sources:
-            - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
-            - gcc-5
-            - libelf-dev
-      env: COMPILER=gcc-5 KVER=4.15
+            - libssl1.1
+      env: COMPILER=gcc-5 KVER=4.19.45
     - compiler: gcc
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-6
-            - libelf-dev
-      env: COMPILER=gcc-6 KVER=4.15
+            - libssl1.1
+      env: COMPILER=gcc-6 KVER=4.19.45
     - compiler: gcc
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - sourceline: 'ppa:ondrej/nginx-mainline'
           packages:
             - gcc-7
-            - libelf-dev
-      env: COMPILER=gcc-7 KVER=4.15
+            - libssl1.1
+      env: COMPILER=gcc-7 KVER=4.19.45
     - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-5
-            - libelf-dev
-      env: COMPILER=gcc-5 KVER=4.14.16
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-6
-            - libelf-dev
-      env: COMPILER=gcc-6 KVER=4.14.16
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-7
-            - libelf-dev
-      env: COMPILER=gcc-7 KVER=4.14.16
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-6
-      env: COMPILER=gcc-6 KVER=4.9.51
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-4.9
-      env: COMPILER=gcc-4.9 KVER=3.16.48
+      env: COMPILER=gcc-5 KVER=3.14.79
