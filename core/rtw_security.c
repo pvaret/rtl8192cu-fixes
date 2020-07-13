@@ -2153,7 +2153,7 @@ BIP_exit:
 
 #ifndef PLATFORM_FREEBSD
 /* compress 512-bits */
-static int sha256_compress(struct sha256_state *md, unsigned char *buf)
+static int sha256_compress(struct rtw_sha256_state *md, unsigned char *buf)
 {
 	u32 S[8], W[64], t0, t1;
 	u32 t;
@@ -2195,7 +2195,7 @@ static int sha256_compress(struct sha256_state *md, unsigned char *buf)
 }
 
 /* Initialize the hash state */
-static void sha256_init(struct sha256_state *md)
+static void sha256_init(struct rtw_sha256_state *md)
 {
 	md->curlen = 0;
 	md->length = 0;
@@ -2216,7 +2216,7 @@ static void sha256_init(struct sha256_state *md)
    @param inlen  The length of the data (octets)
    @return CRYPT_OK if successful
 */
-static int sha256_process(struct sha256_state *md, unsigned char *in,
+static int sha256_process(struct rtw_sha256_state *md, unsigned char *in,
 			  unsigned long inlen)
 {
 	unsigned long n;
@@ -2257,7 +2257,7 @@ static int sha256_process(struct sha256_state *md, unsigned char *in,
    @param out [out] The destination of the hash (32 bytes)
    @return CRYPT_OK if successful
 */
-static int sha256_done(struct sha256_state *md, unsigned char *out)
+static int sha256_done(struct rtw_sha256_state *md, unsigned char *out)
 {
 	int i;
 
@@ -2309,7 +2309,7 @@ static int sha256_done(struct sha256_state *md, unsigned char *out)
 static int sha256_vector(size_t num_elem, u8 *addr[], size_t *len,
 		  u8 *mac)
 {
-	struct sha256_state ctx;
+	struct rtw_sha256_state ctx;
 	size_t i;
 
 	sha256_init(&ctx);
