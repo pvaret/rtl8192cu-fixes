@@ -248,7 +248,7 @@ MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/
 INSTALL_PREFIX :=
 endif
 
-ifeq ($(CONFIG_PLATFORM_ARM_RPI), y)
+ifeq ($(CONFIG_PLATFORM_ARM_GENERIC), y)
 EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN
 ARCH := arm
 KVER := $(shell uname -r)
