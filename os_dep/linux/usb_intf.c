@@ -153,7 +153,7 @@ static void rtw_dev_remove(struct usb_interface *pusb_intf);
 	{USB_DEVICE(0x050D, 0x2103)},/* Belkin - Edimax */ \
 	{USB_DEVICE(0x050D, 0x21F2)},/* Belkin - Edimax */ \
 	{USB_DEVICE(0x20F4, 0x624D)},/* TRENDnet */ \
-	{USB_DEVICE(0x20F4, 0x648C)},/* TRENDnet */
+	{USB_DEVICE(0x20F4, 0x648C)},/* TRENDnet */ \
 	{USB_DEVICE(0x0DF6, 0x0061)},/* Sitecom - Edimax */ \
 	{USB_DEVICE(0x0B05, 0x17AB)},/* ASUS - Edimax */ \
 	{USB_DEVICE(0x0846, 0x9021)},/* Netgear - Sercomm */ \
