@@ -22,7 +22,10 @@
 #ifdef __KERNEL__
 #include <linux/if_arp.h>
 #include <net/ip.h>
+#include <linux/version.h>
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 15, 0)
 #include <net/ipx.h>
+#endif
 #include <linux/atalk.h>
 #include <linux/udp.h>
 #include <linux/if_pppox.h>
@@ -173,6 +176,7 @@ static __inline__ void __nat25_generate_ipv4_network_addr(unsigned char *network
 }
 
 
+#ifdef _NET_INET_IPX_H_
 static __inline__ void __nat25_generate_ipx_network_addr_with_node(unsigned char *networkAddr,
 				unsigned int *ipxNetAddr, unsigned char *ipxNodeAddr)
 {
@@ -193,6 +197,7 @@ static __inline__ void __nat25_generate_ipx_network_addr_with_socket(unsigned ch
 	memcpy(networkAddr+1, (unsigned char *)ipxNetAddr, 4);
 	memcpy(networkAddr+5, (unsigned char *)ipxSocketAddr, 2);
 }
+#endif
 
 
 static __inline__ void __nat25_generate_apple_network_addr(unsigned char *networkAddr,
@@ -930,6 +935,7 @@ int nat25_db_handle(_adapter *priv, struct sk_buff *skb, int method)
 		}
 	}
 
+#ifdef _NET_INET_IPX_H_
 	/*---------------------------------------------------*/
 	/*         Handle IPX and Apple Talk frame           */
 	/*---------------------------------------------------*/
@@ -1193,6 +1199,7 @@ int nat25_db_handle(_adapter *priv, struct sk_buff *skb, int method)
 
 		return -1;
 	}
+#endif
 
 	/*---------------------------------------------------*/
 	/*                Handle PPPoE frame                 */
