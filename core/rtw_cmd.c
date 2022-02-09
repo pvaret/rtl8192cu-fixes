@@ -567,8 +567,11 @@ post_process:
 
 _func_exit_;
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 17, 0)
 	thread_exit();
-
+#else
+	kthread_complete_and_exit(NULL, 0);
+#endif
 }
 
 

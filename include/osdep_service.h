@@ -853,7 +853,11 @@ __inline static void _set_workitem(_workitem *pwork)
 	typedef int		thread_return;
 	typedef void*	thread_context;
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 17, 0)
 	#define thread_exit() complete_and_exit(NULL, 0)
+#else
+	#define kthread_thread_exit() complete_and_exit(NULL, 0)
+#endif
 
 	typedef void timer_hdl_return;
 	typedef void* timer_hdl_context;
@@ -1114,7 +1118,11 @@ static inline void rtw_netif_stop_queue(struct net_device *pnetdev)
 
 	typedef NDIS_WORK_ITEM _workitem;
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 17, 0)
 	#define thread_exit() PsTerminateSystemThread(STATUS_SUCCESS);
+#else
+	#define kthread_thread_exit() PsTerminateSystemThread(STATUS_SUCCESS);
+#endif
 
 	#define HZ			10000000
 	#define SEMA_UPBND	(0x7FFFFFFF)   //8192
